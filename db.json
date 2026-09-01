@@ -1,0 +1,54 @@
+{
+  "basicInfoCategories": [
+    {
+      "id": "1",
+      "name": "دسته‌بندی اول"
+    },
+    {
+      "id": "2",
+      "name": "دسته‌بندی دوم"
+    },
+    {
+      "id": "3",
+      "name": "دسته‌بندی سوم"
+    }
+  ],
+  "basicInfoData": [
+    {
+      "id": "1",
+      "name": "علوم پزشکی",
+      "category_name": "مشتری",
+      "created_by": "مسعود",
+      "created_at": "1405/01/18 20:30:00",
+      "updated_by": "علی",
+      "updated_at": "1405/01/21 20:30:00"
+    },
+    {
+      "id": "2",
+      "name": "شهرداری یزد",
+      "category_name": "مشتری",
+      "created_by": "مسعود",
+      "created_at": "1405/01/19 20:30:00",
+      "updated_by": "علی",
+      "updated_at": "1405/01/21 20:30:00"
+    },
+    {
+      "id": "3",
+      "name": "شهرداری فارس",
+      "category_name": "مشتری",
+      "created_by": "مسعود",
+      "created_at": "1405/01/10 20:30:00",
+      "updated_by": "علی",
+      "updated_at": "1405/01/21 20:30:00"
+    },
+    {
+      "id": "4",
+      "name": "شهرداری فارس",
+      "category_name": "مشتری",
+      "created_by": "مسعود",
+      "created_at": "1405/01/15 20:30:00",
+      "updated_by": "علی",
+      "updated_at": "1405/01/21 20:30:00"
+    }
+  ]
+}

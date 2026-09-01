@@ -1,0 +1,23 @@
+::-webkit-scrollbar-thumb{
+    background-color: #f1f1f4;
+}
+
+::-webkit-scrollbar-corner{
+    background-color: transparent;
+}
+
+::-webkit-scrollbar{
+    width: 5px;
+    height: 5px;
+}
+.branded-bg{
+    background-image: url("../assets/images/bg.png")
+}
+
+button{
+    appearance: button;
+    cursor: pointer;
+    &.bg-primary{
+        background-color: color-mix(#2b7fff, 90%);
+    }
+}

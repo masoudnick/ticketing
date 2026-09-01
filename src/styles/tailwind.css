@@ -1,0 +1,22 @@
+@import "tailwindcss";
+@import 'tw-animate-css';
+
+
+.dark {
+  --color-border: #364153;
+  --color-background: var(--color-gray-900);
+  --color-accent: var(--color-gray-700);
+  --color-danger: var(--color-red-600);
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --font-vazir: 'Vazirmatn';
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 5%);
+    --color-border: #e5e7eb;
+    --color-primary: #2b7fff;
+    --color-background: rgb(255 255 255);
+    --color-accent: var(--color-zinc-100);
+    --color-danger: var(--color-red-600);
+}
