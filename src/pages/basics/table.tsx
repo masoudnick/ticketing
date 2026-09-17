@@ -10,13 +10,12 @@ import { Button } from "@/components/button";
 import { basicInfoService } from '@/services';
 import type { BasicInfoProps } from '@/types';
 import { Delete02Icon, Edit03Icon } from '@hugeicons/core-free-icons';
-import type { ColumnDef, PaginationState, RowSelectionState, SortingState, } from '@tanstack/react-table';
+import type { ColumnDef, PaginationState, RowSelectionState, SortingState, Row} from '@tanstack/react-table';
 import {
     getCoreRowModel,
     getFilteredRowModel,
     getPaginationRowModel,
     getSortedRowModel,
-    type Row,
     useReactTable,
 } from '@tanstack/react-table';
 

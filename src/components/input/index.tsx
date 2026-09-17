@@ -1,91 +1,39 @@
-import { HugeiconsIcon } from '@hugeicons/react';
-import { ViewIcon, ViewOffSlashIcon } from "@hugeicons/core-free-icons";
-import type { FieldError } from "react-hook-form";
-import { useState, useRef } from "react";
-import clsx from "clsx";
-import "./style.scss";
+import * as React from 'react';
+import clsx from 'clsx';
+import { cva, type VariantProps } from 'class-variance-authority';
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  type: string;
-  readOnly?: boolean;
-  error?: FieldError;
-  setValue?: React.Dispatch<React.SetStateAction<string>>;
+// Define input size variants
+const inputVariants = cva(
+  `
+    flex w-full bg-background border border-input shadow-xs shadow-black/5 transition-[color,box-shadow] text-foreground placeholder:text-muted-foreground/80 
+    focus-visible:ring-ring/30  focus-visible:border-ring focus-visible:outline-none focus-visible:ring-[3px]     
+    disabled:cursor-not-allowed disabled:opacity-60 
+    [&[readonly]]:bg-muted/80 [&[readonly]]:cursor-not-allowed
+    aria-invalid:border-destructive/60 aria-invalid:ring-destructive/10 dark:aria-invalid:border-destructive dark:aria-invalid:ring-destructive/20
+  `,
+  {
+    variants: {
+      variant: {
+        lg: 'h-10 px-4 text-sm rounded-md file:pe-4 file:me-4',
+        md: 'h-8.5 px-3 text-[0.8125rem] leading-(--text-sm--line-height) rounded-md file:pe-3 file:me-3',
+        sm: 'h-7 px-2.5 text-xs rounded-md file:pe-2.5 file:me-2.5',
+      },
+    },
+    defaultVariants: {
+      variant: 'md',
+    },
+  },
+);
+
+
+function Input({
+  className,
+  type,
+  variant,
+  ...props
+}: React.ComponentProps<'input'> & VariantProps<typeof inputVariants>) {
+  return <input data-slot="input" type={type} className={clsx(inputVariants({ variant }), className)} {...props} />;
 }
 
-const Input = ({error, type, readOnly, ...props }: InputProps) => {
 
-  const [showPassword, setShowPassword] = useState<boolean>(false);
-
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  const showHidePassword = () => setShowPassword((prev) => !prev);
-
-  const copyToClipboard = () => {
-    if (inputRef.current) {
-      navigator.clipboard.writeText(inputRef.current.value);
-    }
-  };
-
-  return type === "hidden" ? (
-    <input
-      className="form-control text-xs relative py-2.5 w-full"
-      name={props.id}
-      type={type}
-      readOnly={readOnly}
-      ref={inputRef}
-      {...props}
-    />
-  ) : (
-    <>
-      <div
-        className={clsx(
-          "relative flex items-center pe-2 ps-3 gap-x-1 shadow-sm rounded-md grow border border-border focus-within:border-zinc-400",
-          error ? "border-red-400" : "border-border",
-        )}
-      >
-        <input
-          className="form-control text-xs relative w-full border-0 outline-0"
-          name={props.id}
-          type={
-            type === "password" ? (showPassword ? "text" : "password") : type
-          }
-          autoComplete="off"
-          readOnly={readOnly}
-          ref={inputRef}
-          {...props}
-        />
-        {type === "password" ? (
-          <button
-            className="cursor-pointer rounded-md"
-            type="button"
-            onClick={showHidePassword}
-          >
-            {showPassword ? (
-              <HugeiconsIcon
-                icon={ViewOffSlashIcon}
-                className="p-1"
-                id="icon"
-                size={"24px"}
-                strokeWidth={2}
-              />
-            ) : (
-              <HugeiconsIcon
-                icon={ViewIcon}
-                className="p-1"
-                id="icon"
-                size={"24px"}
-                strokeWidth={2}
-              />
-            )}
-          </button>
-        ) : null}
-        {readOnly ? (
-          <button className="cursor-pointer rounded-md" type="button" onClick={copyToClipboard}></button>
-        ) : null}
-      </div>
-      {error && <p className="mt-1 text-red-400 text-xs">{error.message}</p>}
-    </>
-  );
-};
-
-export {Input};
+export { Input };

@@ -3,10 +3,12 @@
 
 
 .dark {
-  --color-border: #364153;
-  --color-background: var(--color-gray-900);
+  --color-border: var(--color-zinc-800);
+  --color-background: #09090b;
+  --color-foreground: var(--color-zinc-50);
   --color-accent: var(--color-gray-700);
   --color-danger: var(--color-red-600);
+  --color-secondary-foreground: var(--color-zinc-50);
 }
 
 @custom-variant dark (&:is(.dark *));
@@ -17,6 +19,10 @@
     --color-border: #e5e7eb;
     --color-primary: #2b7fff;
     --color-background: rgb(255 255 255);
+    --color-foreground: var(--color-zinc-950);
     --color-accent: var(--color-zinc-100);
     --color-danger: var(--color-red-600);
+    --color-border: #f3f4f6;
+    --color-secondary-foreground: var(--color-zinc-900);
+    border-input: ;
 }
