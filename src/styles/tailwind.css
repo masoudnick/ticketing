@@ -9,6 +9,7 @@
   --color-accent: var(--color-gray-700);
   --color-danger: var(--color-red-600);
   --color-secondary-foreground: var(--color-zinc-50);
+  --color-input: var(--color-zinc-800);
 }
 
 @custom-variant dark (&:is(.dark *));
@@ -24,5 +25,5 @@
     --color-danger: var(--color-red-600);
     --color-border: #f3f4f6;
     --color-secondary-foreground: var(--color-zinc-900);
-    border-input: ;
+    --color-input: var(--color-zinc-200);
 }

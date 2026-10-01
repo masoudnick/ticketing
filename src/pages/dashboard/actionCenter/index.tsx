@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from '@/components/card';
 import { ActionItem } from './actionItem';
-import { Alert01Icon, UserXIcon, BookOpenCheckIcon, AlertCircleIcon, MessageSquareMoreIcon, UserSearch01Icon } from '@hugeicons/core-free-icons'
+import { Alert01Icon, UserXIcon, BookOpenCheckIcon, AlertCircleIcon, MessageSquareMoreIcon } from '@hugeicons/core-free-icons'
 
 export const ActionCenter = () => {
 
@@ -50,14 +50,6 @@ export const ActionCenter = () => {
             <div className="flex flex-col">
               <div className="inline-flex text-sm text-foreground">
                 <p>9 تیکت در آستانه نقض SLA هستند</p>
-                <Link className='text-primary underline underline-offset-8 decoration-dashed decoration-1 ms-2 hover:text-primary/90' to="">رسیدگی</Link>
-              </div>
-            </div>
-          </ActionItem>
-          <ActionItem iconBgClass='text-cyan-600 bg-cyan-50 dark:bg-cyan-900/30 dark:text-cyan-600' icon={UserSearch01Icon} line={true}>
-            <div className="flex flex-col">
-              <div className="inline-flex text-sm text-foreground">
-                <p>15 تیکت در انتظار بررسی کارشناس هستند</p>
                 <Link className='text-primary underline underline-offset-8 decoration-dashed decoration-1 ms-2 hover:text-primary/90' to="">رسیدگی</Link>
               </div>
             </div>

@@ -1,33 +1,39 @@
-import { ChannelStats } from "./stats";
+import { TicketStats } from "./ticketStats";
 import { TotalTicketsChart } from "./totalTicketsChart";
-import { Contributions } from "./contributions";
 import { TicketsCategoryChart } from "./ticketsCategoryChart";
+import { TicketsStatusChart } from "./ticketsStatusChart";
 import { ActionCenter } from "./actionCenter";
-import { Teams } from "./teams";
+import { ExpertsPerformance } from "./expertsPerformance";
+import { ActionRequiredTickets } from "./actionRequiredTickets";
 
 
 const Dashboard = () => {
     return (
         <div className="grid gap-5 lg:gap-7.5">
             <div className="grid grid-cols-4 gap-5 lg:gap-7.5 h-full items-stretch">
-                <ChannelStats />
+                <TicketStats />
             </div>
             <div className="grid grid-cols-3 gap-5 lg:gap-7.5 h-full items-stretch">
                 <ActionCenter />
                 <div className="lg:col-span-2">
-                    <Teams />
+                    <ExpertsPerformance />
                 </div>
-                
+            </div>
+            <ActionRequiredTickets />
+            <div className="grid lg:grid-cols-2 gap-y-5 lg:gap-7.5 items-stretch">
+                <TicketsStatusChart />
+                <TicketsCategoryChart />
             </div>
             <div className="grid gap-y-5 lg:gap-7.5 items-stretch">
                 <div className="lg:col-span-2">
                     <TotalTicketsChart />
                 </div>
             </div>
-            <div className="grid lg:grid-cols-2 gap-y-5 lg:gap-7.5 items-stretch">
-                <Contributions />
-                <TicketsCategoryChart />
+            <div>
+
             </div>
+
+
         </div>
     )
 }

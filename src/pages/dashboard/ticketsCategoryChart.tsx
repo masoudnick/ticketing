@@ -41,13 +41,13 @@ const TicketsCategoryChart = () => {
       },
     },
     states: {
-    hover: {
-      filter: {
-        type: 'lighten',
-        value: 0.04,
+      hover: {
+        filter: {
+          type: 'lighten',
+          value: 0.04,
+        },
       },
     },
-  },
     plotOptions: {
       bar: {
         borderRadius: 4,
@@ -105,6 +105,7 @@ const TicketsCategoryChart = () => {
           fontSize: '12px',
         },
         formatter: undefined,
+        offsetX: 50,
       },
       opposite: true,
       reversed: true,
@@ -143,11 +144,10 @@ const TicketsCategoryChart = () => {
     <Fragment>
       <Card>
         <CardHeader>
-          <CardTitle>تعداد تیکت‌ها بر اساس دسته‌بندی</CardTitle>
+          <CardTitle>تعداد تیکت‌ها براساس دسته‌بندی</CardTitle>
         </CardHeader>
         <div className="px-3 py-1">
           <ApexChart
-            id="media_uploads_chart"
             options={options}
             series={options.series}
             type="bar"

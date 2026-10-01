@@ -1,4 +1,4 @@
-import { Home01Icon, Settings01Icon, StickyNote01Icon } from '@hugeicons/core-free-icons'
+import { Home01Icon, Settings01Icon, StickyNote01Icon, ChartIcon, PackageIcon, Archive02Icon, AccountSetting01Icon } from '@hugeicons/core-free-icons'
 import type { MenuItemProps } from "@/types";
 
 export const menuItems: MenuItemProps[] = [
@@ -11,8 +11,27 @@ export const menuItems: MenuItemProps[] = [
     icon: StickyNote01Icon,
     children: [
       { label: "کارتابل", href: "/tickets/cartabl" },
-      { label: "بسته‌های پشتیبانی", href: "/tickets/packages" },
     ],
+  },
+  {
+    label: "سوابق وظایف",
+    icon: Archive02Icon,
+    href: "/tickets/packages"
+  },
+  {
+    label: "میزکار مدیر",
+    icon: AccountSetting01Icon,
+    href: "/tickets/packages"
+  },
+  {
+    label: "بسته‌های پشتیبانی",
+    icon: PackageIcon,
+    href: "/tickets/packages"
+  },
+  {
+    label: "خلاصه عملکرد",
+    icon: ChartIcon,
+    href: "/tickets/packages"
   },
   {
     label: "تنظیمات",

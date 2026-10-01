@@ -23,7 +23,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
     return (
         <div className="min-w-fit">
             <div className={clsx("fixed inset-0 bg-gray-900/30 z-40 lg:hidden lg:z-auto transition-opacity duration-200", sidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none")}></div>
-            <div id="sidebar" className={clsx("flex flex-col border-e border-border absolute z-40 right-0 top-0 lg:static lg:right-auto lg:top-auto lg:translate-x-0 h-[100dvh] overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 lg:w-20 lg:sidebar-expanded:!w-64 2xl:w-64! shrink-0 bg-white p-4 transition-all duration-200 ease-in-out dark:bg-background ", sidebarOpen ? "translate-x-0" : "translate-x-64") }>
+            <div id="sidebar" className={clsx("flex flex-col border-e border-border absolute z-40 right-0 top-0 lg:static lg:right-auto lg:top-auto lg:translate-x-0 h-[100dvh] overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 lg:w-20 lg:sidebar-expanded:!w-64 2xl:w-64! shrink-0 bg-white p-4 transition-transform duration-200 ease-in-out dark:bg-background", sidebarOpen ? "translate-x-0" : "translate-x-64") }>
                 <div className="flex justify-between mb-4 pr-3 sm:px-2">
                     <button
                         ref={trigger}

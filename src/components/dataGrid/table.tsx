@@ -175,13 +175,6 @@ function DataGridTableBodyRowSkeleton({ children }: { children: ReactNode }) {
       className={clsx(
         'hover:bg-muted/40 data-[state=selected]:bg-muted/50 border-border',
         props.onRowClick && 'cursor-pointer',
-        !props.tableLayout?.stripped &&
-          props.tableLayout?.rowBorder &&
-          'border-b [&:not(:last-child)>td]:border-b',
-        props.tableLayout?.cellBorder && '[&_>:last-child]:border-e-0',
-        props.tableLayout?.stripped && 'odd:bg-muted/90 hover:bg-transparent odd:hover:bg-muted',
-        table.options.enableRowSelection && '[&_>:first-child]:relative',
-        props.tableClassNames?.bodyRow,
       )}
     >
       {children}
@@ -317,7 +310,7 @@ function DataGridTableEmpty() {
   return (
     <tr>
       <td colSpan={totalColumns} className="text-center text-muted-foreground py-6">
-        {props.emptyMessage || 'No data available'}
+        {props.emptyMessage || 'آیتمی وجود نداره!'}
       </td>
     </tr>
   );

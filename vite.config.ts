@@ -7,10 +7,8 @@ import path from "path";
 export default defineConfig({
 
   plugins: [react(), tailwindcss()],
-  build: {
-    commonjsOptions: {
-      transformMixedEsModules: true,
-    }
+  legacy: {
+    inconsistentCjsInterop: true,
   },
   resolve: {
     alias: {

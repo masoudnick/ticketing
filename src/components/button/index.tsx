@@ -401,4 +401,4 @@ function ButtonArrow({ icon: Icon = ChevronDown, className, ...props }: ButtonAr
   return <Icon data-slot="button-arrow" className={clsx('ms-auto -me-1', className)} {...props} />;
 }
 
-export { Button, ButtonArrow };
+export { Button, ButtonArrow, buttonVariants };

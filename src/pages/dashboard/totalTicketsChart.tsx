@@ -106,7 +106,7 @@ const TotalTicketsChart = () => {
             <div class="font-medium text-sm text-secondary-foreground">${category['month']}</div>
             <div class="flex items-center gap-1.5">
               <div class="font-semibold text-base">${number}</div>
-              <span class="font-semibold text-xs ${badgeClass}">${category.type === "increase"  ? "+" : "-"}${category['percentage']}%</span>
+              <span class="text-xs ${badgeClass}">${category.type === "increase"  ? "+" : "-"}${category['percentage']}%</span>
             </div>
           </div>
         `;
@@ -156,7 +156,7 @@ const TotalTicketsChart = () => {
     <Fragment>
       <Card>
         <CardHeader>
-          <CardTitle>تعداد تیکت های ثبت شده</CardTitle>
+          <CardTitle>تعداد کل تیکت ها</CardTitle>
         </CardHeader>
         <div className="px-3 py-1">
           <ApexChart

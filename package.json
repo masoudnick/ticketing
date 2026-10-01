@@ -23,6 +23,7 @@
     "radix-ui": "^1.4.3",
     "react": "^19.2.4",
     "react-apexcharts": "^2.1.1",
+    "react-countup": "6.4.2",
     "react-dom": "^19.2.4",
     "react-hook-form": "^7.75.0",
     "react-router-dom": "^7.14.2",

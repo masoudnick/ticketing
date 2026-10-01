@@ -50,5 +50,23 @@
       "updated_by": "علی",
       "updated_at": "1405/01/21 20:30:00"
     }
+  ],
+  "ticketStats": [
+    {
+      "name": "totalTickets",
+      "value": "4000"
+    },
+    {
+      "name": "resolvedTickets",
+      "value": "500"
+    },
+    {
+      "name": "openTickets",
+      "value": "2500"
+    },
+    {
+      "name": "doingTickets",
+      "value": "1000"
+    }
   ]
 }
