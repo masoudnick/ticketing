@@ -69,42 +69,6 @@ const statusCopy: Record<UserStatus, { label: string; className: string }> = {
 
 const faNumber = new Intl.NumberFormat('fa-IR');
 
-function MetricCard({
-  title,
-  value,
-  caption,
-  icon,
-  tone = 'primary',
-}: {
-  title: string;
-  value: string;
-  caption: string;
-  icon: ReactNode;
-  tone?: 'primary' | 'success' | 'warning' | 'violet';
-}) {
-  const tones = {
-    primary: 'bg-primary/10 text-primary',
-    success: 'bg-emerald-50 text-emerald-600',
-    warning: 'bg-amber-50 text-amber-600',
-    violet: 'bg-violet-50 text-violet-600',
-  };
-
-  return (
-    <Card className="overflow-hidden">
-      <CardContent className="p-5">
-        <div className="flex items-start justify-between gap-3">
-          <div className={`flex size-10 items-center justify-center rounded-xl ${tones[tone]}`}>{icon}</div>
-          <span className="inline-flex items-center gap-1 rounded-full bg-muted px-2 py-1 text-[11px] text-muted-foreground">
-            <ArrowUpRight className="size-3 text-emerald-600" />
-            {caption}
-          </span>
-        </div>
-        <p className="mt-5 text-sm text-muted-foreground">{title}</p>
-        <p className="mt-1 text-2xl font-bold tracking-tight">{value}</p>
-      </CardContent>
-    </Card>
-  );
-}
 
 function StatusBadge({ status }: { status: UserStatus }) {
   const copy = statusCopy[status];
@@ -121,58 +85,6 @@ function PerformanceBar({ value }: { value: number }) {
   );
 }
 
-function UserFormDialog({
-  user,
-  open,
-  onOpenChange,
-  onSave,
-}: {
-  user: ManagedUser | null;
-  open: boolean;
-  onOpenChange: (value: boolean) => void;
-  onSave: (value: UserFormValues) => void;
-}) {
-  const [form, setForm] = useState<UserFormValues>(() => formFromUser(user));
-
-  const update = <K extends keyof UserFormValues>(key: K, value: UserFormValues[K]) => {
-    setForm((current) => ({ ...current, [key]: value }));
-  };
-
-  const submit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    onSave(form);
-    setForm(emptyForm);
-  };
-
-  return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent size="xl" className="max-h-[92vh] overflow-y-auto p-6 sm:p-8">
-        <DialogHeader className="mb-6 border-b border-border pb-5">
-          <DialogTitle>{user ? 'ویرایش کاربر' : 'تعریف کاربر جدید'}</DialogTitle>
-          <DialogDescription>{user ? 'اطلاعات دسترسی و مشخصات کاربر را به‌روز کنید.' : 'کاربر جدید را به داشبورد تیکتینگ اضافه کنید.'}</DialogDescription>
-        </DialogHeader>
-        <form onSubmit={submit} className="space-y-5">
-          <div className="grid gap-4 sm:grid-cols-2">
-            <Field label="نام و نام خانوادگی"><Input required value={form.name} onChange={(event) => update('name', event.target.value)} placeholder="مثلاً نیما صالحی" /></Field>
-            <Field label="شماره همراه"><Input required value={form.mobile} onChange={(event) => update('mobile', event.target.value)} placeholder="۰۹۱۲ ..." /></Field>
-            <Field label="ایمیل سازمانی"><Input required dir="ltr" className="text-left" value={form.email} onChange={(event) => update('email', event.target.value)} placeholder="name@company.ir" /></Field>
-            <Field label="نقش کاربری"><Select value={form.role} onValueChange={(value) => update('role', value)}><SelectTrigger><SelectValue placeholder="نقش کاربر را انتخاب کنید" /></SelectTrigger><SelectContent>{userRoles.map((role) => <SelectItem key={role} value={role}>{role}</SelectItem>)}</SelectContent></Select></Field>
-            <Field label="واحد سازمانی"><Select value={form.department} onValueChange={(value) => update('department', value)}><SelectTrigger><SelectValue placeholder="واحد سازمانی را انتخاب کنید" /></SelectTrigger><SelectContent>{userDepartments.map((department) => <SelectItem key={department} value={department}>{department}</SelectItem>)}</SelectContent></Select></Field>
-            <Field label="وضعیت حساب"><div className="flex h-8.5 items-center gap-5 rounded-md border border-input px-3 text-sm"><label className="flex cursor-pointer items-center gap-2"><input type="radio" checked={form.status === 'active'} onChange={() => update('status', 'active')} />فعال</label><label className="flex cursor-pointer items-center gap-2"><input type="radio" checked={form.status === 'inactive'} onChange={() => update('status', 'inactive')} />غیرفعال</label></div></Field>
-          </div>
-          <div className="flex justify-end gap-2 border-t border-border pt-5">
-            <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>انصراف</Button>
-            <Button type="submit"><CheckCircle2 />{user ? 'ذخیره تغییرات' : 'ایجاد کاربر'}</Button>
-          </div>
-        </form>
-      </DialogContent>
-    </Dialog>
-  );
-}
-
-function Field({ label, children }: { label: string; children: ReactNode }) {
-  return <label className="grid gap-2 text-sm font-medium"><span>{label}</span>{children}</label>;
-}
 
 function UserDetailsDialog({ user, open, onOpenChange }: { user: ManagedUser | null; open: boolean; onOpenChange: (value: boolean) => void }) {
   if (!user) return null;
@@ -320,13 +232,6 @@ const UsersManagementRedesign = () => {
 
 
 
-  const summary = useMemo(() => ({
-    active: users.filter((user) => user.status === 'active').length,
-    resolved: users.reduce((sum, user) => sum + user.performance.resolved, 0),
-    open: users.reduce((sum, user) => sum + user.performance.open, 0),
-    sla: users.length ? Math.round(users.reduce((sum, user) => sum + user.performance.sla, 0) / users.length) : 0,
-  }), [users]);
-
   const openCreate = () => { setFormUser(null); setFormOpen(true); };
   const openEdit = (user: ManagedUser) => { setFormUser(user); setFormOpen(true); };
   const openDetails = (user: ManagedUser) => { setDetailUser(user); setDetailOpen(true); };
@@ -343,14 +248,7 @@ const UsersManagementRedesign = () => {
 
   return (
     <section className="space-y-5 lg:space-y-7.5">
-      
-
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <MetricCard title="کاربران فعال" value={faNumber.format(summary.active)} caption="۲ نفر این ماه" icon={<UsersRound className="size-5" />} />
-        <MetricCard title="تیکت‌های حل‌شده" value={faNumber.format(summary.resolved)} caption="۸.۴٪ رشد" icon={<TicketCheck className="size-5" />} tone="success" />
-        <MetricCard title="تیکت‌های باز" value={faNumber.format(summary.open)} caption="نیازمند پیگیری" icon={<Clock3 className="size-5" />} tone="warning" />
-        <MetricCard title="میانگین SLA تیم" value={`٪${faNumber.format(summary.sla)}`} caption="۱.۲٪ رشد" icon={<ShieldCheck className="size-5" />} tone="violet" />
-      </div>
+    
 
       <UsersDataGrid users={users} filteredUsers={filteredUsers} isLoading={isLoading} isError={isError} query={query} statusFilter={statusFilter} onQueryChange={setQuery} onStatusFilterChange={setStatusFilter} onDetails={openDetails} onEdit={openEdit} setPendingDelete={setPendingDelete} />
 

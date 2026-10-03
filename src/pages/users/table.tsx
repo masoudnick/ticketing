@@ -1,5 +1,4 @@
 import React, { useState, useMemo, memo } from "react";
-import { useQuery } from "@tanstack/react-query";
 import { DataGridPagination } from "@/components/dataGrid/pagination";
 import { ScrollArea, ScrollBar } from "@/components/scrollArea";
 import { DataGridColumnHeader } from "@/components/dataGrid/columnHeader";
@@ -9,7 +8,7 @@ import {
   DataGridTableRowSelectAll,
   DataGridTableRowSelect,
 } from "@/components/dataGrid/table";
-import { DataGridColumnVisibility } from "@/components/dataGrid/columnVisibility";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/select';
 import {
   Card,
   CardHeader,
@@ -20,10 +19,26 @@ import {
   DataGrid,
   CardToolbar,
 } from "@/components";
+import {
+  Activity,
+  ArrowUpRight,
+  CheckCircle2,
+  Clock3,
+  Eye,
+  Mail,
+  Pencil,
+  Plus,
+  Search,
+  ShieldCheck,
+  TicketCheck,
+  Trash2,
+  UsersRound,
+  X,
+} from 'lucide-react';
 import { Button } from "@/components/button";
 import { Avatar, AvatarFallback } from '@/components/avatar';
 import type { BasicInfoProps } from "@/types";
-
+import type { ManagedUser, UserFormValues, UserStatus } from '@/types/user';
 import type {
   ColumnDef,
   PaginationState,
@@ -39,8 +54,38 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 
+
 function ActionsCell({ row }: { row: Row<BasicInfoProps> }) {
   return <div id={row.id}></div>;
+}
+function PerformanceBar({ value }: { value: number }) {
+  const color = value >= 90 ? 'bg-emerald-500' : value >= 75 ? 'bg-amber-500' : 'bg-rose-500';
+  return (
+    <div className="flex min-w-28 items-center gap-2">
+      <div className="h-1.5 grow overflow-hidden rounded-full bg-muted"><div className={`h-full rounded-full ${color}`} style={{ width: `${value}%` }} /></div>
+      <span className="w-8 text-left text-xs font-medium">٪{value}</span>
+    </div>
+  );
+}
+const emptyForm: UserFormValues = {
+  name: '',
+  email: '',
+  mobile: '',
+  role: '',
+  department: '',
+  status: 'active',
+};
+
+
+
+const statusCopy: Record<UserStatus, { label: string; className: string }> = {
+  active: { label: 'فعال', className: 'bg-emerald-50 text-emerald-700 ring-emerald-600/15' },
+  inactive: { label: 'غیرفعال', className: 'bg-slate-100 text-slate-600 ring-slate-500/15' },
+};
+
+function StatusBadge({ status }: { status: UserStatus }) {
+  const copy = statusCopy[status];
+  return <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ring-1 ring-inset ${copy.className}`}><span className="size-1.5 rounded-full bg-current" />{copy.label}</span>;
 }
 
 export const PageTable = memo(
@@ -49,6 +94,14 @@ export const PageTable = memo(
   }: {
     setSettingsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   }) => {
+    
+  const [query, setQuery] = useState('');
+  const [statusFilter, setStatusFilter] = useState<'all' | UserStatus>('all');
+
+
+
+
+ 
     const [pagination, setPagination] = useState<PaginationState>({
       pageIndex: 0,
       pageSize: 10,
@@ -57,6 +110,10 @@ export const PageTable = memo(
     const [sorting, setSorting] = useState<SortingState>([
       { id: "sla", desc: true },
     ]);
+
+    const openCreate = () => { setFormUser(null); setFormOpen(true); };
+  const openEdit = (user: ManagedUser) => { setFormUser(user); setFormOpen(true); };
+  const openDetails = (user: ManagedUser) => { setDetailUser(user); setDetailOpen(true); };
 
     const filteredUsers = useMemo(
       () =>
@@ -146,14 +203,14 @@ export const PageTable = memo(
           cell: ({ row }) => (
             <div>
               <span className="font-medium">
-                {faNumber.format(row.original.performance.resolved)}
+                {row.original.performance.resolved}
               </span>
               <span className="text-muted-foreground">
                 {" "}
-                / {faNumber.format(row.original.performance.assigned)}
+                / {row.original.performance.assigned}
               </span>
               <p className="mt-0.5 text-xs text-amber-600">
-                {faNumber.format(row.original.performance.open)} باز
+                {row.original.performance.open} باز
               </p>
             </div>
           ),
@@ -167,9 +224,9 @@ export const PageTable = memo(
           ),
           cell: ({ row }) =>
             row.original.performance.averageResponseMinutes
-              ? `${faNumber.format(
+              ? `${
                   row.original.performance.averageResponseMinutes
-                )} دقیقه`
+                } دقیقه`
               : "—",
           size: 130,
         },
@@ -208,7 +265,7 @@ export const PageTable = memo(
                 size="sm"
                 aria-label={`مشاهده ${row.original.name}`}
                 title="مشاهده جزئیات"
-                onClick={() => onDetails(row.original)}
+                onClick={() => openDetails(row.original)}
               >
                 <Eye />
               </Button>
@@ -218,7 +275,7 @@ export const PageTable = memo(
                 size="sm"
                 aria-label={`ویرایش ${row.original.name}`}
                 title="ویرایش کاربر"
-                onClick={() => onEdit(row.original)}
+                onClick={() => openEdit(row.original)}
               >
                 <Pencil />
               </Button>
@@ -239,7 +296,7 @@ export const PageTable = memo(
           size: 130,
         },
       ],
-      [onDetails, onEdit, setPendingDelete]
+      [openDetails, openEdit, setPendingDelete]
     );
 
     const table = useReactTable({
@@ -286,7 +343,7 @@ export const PageTable = memo(
                 <Search className="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
                 <Input
                   value={query}
-                  onChange={(event) => onQueryChange(event.target.value)}
+                  onChange={(event) => setQuery(event.target.value)}
                   placeholder="جست‌وجوی نام، نقش یا ایمیل"
                   className="w-full pr-9 sm:w-64"
                 />
@@ -296,7 +353,7 @@ export const PageTable = memo(
                     mode="icon"
                     size="sm"
                     className="absolute left-1 top-1/2 -translate-y-1/2"
-                    onClick={() => onQueryChange("")}
+                    onClick={() => setQuery("")}
                   >
                     <X />
                   </Button>
@@ -305,7 +362,7 @@ export const PageTable = memo(
               <Select
                 value={statusFilter}
                 onValueChange={(value) =>
-                  onStatusFilterChange(value as "all" | UserStatus)
+                  setStatusFilter(value as "all" | UserStatus)
                 }
               >
                 <SelectTrigger className="w-full sm:w-36">

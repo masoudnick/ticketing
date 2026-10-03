@@ -1,4 +1,4 @@
-import type { ManagedUser } from '@/pages/users/userManagement';
+import type { ManagedUser } from '@/types/user';
 
 const usersEndpoint = 'http://localhost:3001/users';
 

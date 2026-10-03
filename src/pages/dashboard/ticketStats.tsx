@@ -1,8 +1,8 @@
-import { Ticket03Icon, TicketPercentIcon, TicketCheckIcon, TicketPlusIcon } from '@hugeicons/core-free-icons';
 import { Fragment } from 'react';
 import { Card, CardContent } from '@/components/card';
-import { Skeleton } from '@/components/skeleton';
+import { Ticket03Icon, TicketPercentIcon, TicketCheckIcon, TicketPlusIcon } from '@hugeicons/core-free-icons';
 import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react";
+import { Skeleton } from '@/components/skeleton';
 import { useQuery } from '@tanstack/react-query';
 import CountUp from "react-countup";
 

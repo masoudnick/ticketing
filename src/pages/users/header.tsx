@@ -14,10 +14,10 @@ const Header = ({
 }) => {
   const openCreate = () => {
     setFormUser(null);
-    setFormOpen(true);
+    setFormOpen(prev=> !prev);
   };
   return (
-    <section className="rounded-2xl mb-8 border border-primary/10 bg-gradient-to-l from-primary/10 via-primary/5 to-transparent p-5 sm:p-6">
+    <section className="rounded-2xl mb-8 border border-primary/10 bg-linear-to-l from-primary/10 via-primary/5 to-transparent p-5 sm:p-6">
       <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
         <div>
           <h2 className="text-xl font-bold inline-flex items-center gap-x-2">
