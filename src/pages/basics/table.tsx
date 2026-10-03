@@ -189,6 +189,8 @@ export const BasicsTable = memo((
                 columnsMovable: true,
                 columnsVisibility: true,
                 cellBorder: true,
+                headerBackground: false,
+                headerBorder: false,
             }}
         >
             <Card>

@@ -1,7 +1,7 @@
 import Header from "./header";
 import Sidebar from "./sidebar";
 import Main from "./main";
-import { Outlet, useMatches } from "react-router";
+import { Outlet, useMatches } from "react-router-dom";
 import { useState } from 'react';
 
 
@@ -9,7 +9,7 @@ const MainLayout = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const matches = useMatches();
     const currentRoute = matches[matches.length - 1];
-    const title = (currentRoute.handle as {title ?: string}).title;
+    const title = (currentRoute.handle as {title ?: string})?.title;
     return (
         <div className='flex h-screen overflow-hidden font-vazir'>
             <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />

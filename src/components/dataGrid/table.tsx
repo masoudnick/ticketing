@@ -169,7 +169,6 @@ function DataGridTableBody({ children }: { children: ReactNode }) {
 
 function DataGridTableBodyRowSkeleton({ children }: { children: ReactNode }) {
   const { table, props } = useDataGrid();
-
   return (
     <tr
       className={clsx(

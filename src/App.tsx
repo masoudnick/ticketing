@@ -43,7 +43,7 @@ const router = createBrowserRouter([
           {
             path: "users",
             element: <Users />,
-            handle: { title: "مدیریت کاربران" }
+            handle: { title: "" }
           },
         ]
       }

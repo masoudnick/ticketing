@@ -17,7 +17,7 @@ const SelectContext = React.createContext<{
 // Root Component
 const Select = ({
   indicatorPosition = 'left',
-  indicatorVisibility = true,
+  indicatorVisibility = false,
   indicator,
   ...props
 }: {
@@ -162,7 +162,7 @@ function SelectItem({ className, children, ...props }: React.ComponentProps<type
       data-slot="select-item"
       className={clsx(
         'relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 text-sm outline-hidden text-foreground hover:bg-accent focus:bg-accent data-disabled:pointer-events-none data-disabled:opacity-50',
-        indicatorPosition === 'left' ? 'ps-8 pe-2' : 'pe-8 ps-2',
+        indicatorVisibility ? indicatorPosition === 'left' ? 'ps-8 pe-2' : 'pe-8 ps-2' : 'px-3',
         className,
       )}
       {...props}
