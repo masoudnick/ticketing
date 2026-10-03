@@ -40,7 +40,7 @@ import {
   UsersRound,
   X,
 } from 'lucide-react';
-import { userDepartments, userRoles } from './userManagement.data';
+
 import { userService } from '@/services';
 import type { ManagedUser, UserFormValues, UserStatus } from '@/types/user';
 
@@ -48,8 +48,8 @@ const emptyForm: UserFormValues = {
   name: '',
   email: '',
   mobile: '',
-  role: userRoles[2],
-  department: userDepartments[0],
+  role: '',
+  department: '',
   status: 'active',
 };
 

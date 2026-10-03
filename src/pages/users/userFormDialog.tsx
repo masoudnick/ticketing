@@ -1,9 +1,11 @@
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/dialog';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/select';
-import React, { useState, type SubmitEvent, type ReactNode } from "react";
+import { useState, type SubmitEvent, type ReactNode } from "react";
 import type { ManagedUser, UserFormValues } from '@/types/user';
 import { Button } from '@/components/button';
 import { Input } from '@/components/input';
+
+
 const emptyForm: UserFormValues = {
     name: '',
     email: '',
@@ -25,6 +27,9 @@ const formFromUser = (user: ManagedUser | null): UserFormValues => user ? {
 function Field({ label, children }: { label: string; children: ReactNode }) {
   return <label className="grid gap-2 text-sm font-medium"><span>{label}</span>{children}</label>;
 }
+
+const userRoles = ["A", "B"];
+const userDepartments = ["A", "B"];
 
 export const UserFormDialog = ({
     user,
@@ -67,7 +72,7 @@ export const UserFormDialog = ({
                     </div>
                     <div className="flex justify-end gap-2 border-t border-border pt-5">
                         <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>انصراف</Button>
-                        <Button type="submit"><CheckCircle2 />{user ? 'ذخیره تغییرات' : 'ایجاد کاربر'}</Button>
+                        <Button type="submit">{user ? 'ذخیره تغییرات' : 'ایجاد کاربر'}</Button>
                     </div>
                 </form>
             </DialogContent>

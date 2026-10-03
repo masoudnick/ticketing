@@ -33,6 +33,7 @@ const Users = () => {
   const [detailUser, setDetailUser] = useState<ManagedUser | null>(null);
   const [pendingDelete, setPendingDelete] = useState<ManagedUser | null>(null);
   const [detailOpen, setDetailOpen] = useState(false);
+  
   const queryClient = useQueryClient();
 
   const { data: users = [], isLoading, isError } = useQuery({
@@ -64,6 +65,9 @@ const Users = () => {
     },
   });
 
+  const openDetails = (user: ManagedUser) => { setDetailUser(user); setDetailOpen(true); };
+    const openEdit = (user: ManagedUser) => { setFormUser(user); setFormOpen(true); };
+
   const saveUser = (values: UserFormValues) => {
     const initials = values.name.split(' ').map((part) => part[0]).join('').slice(0, 2);
     if (formUser) {
@@ -79,7 +83,7 @@ const Users = () => {
       <Header setFormUser={setFormUser} setFormOpen={setFormOpen} />
       <MetricCards />
       <UserFormDialog key={formOpen ? formUser?.id ?? 'new' : 'closed'} user={formUser} open={formOpen} onOpenChange={setFormOpen} onSave={saveUser} />
-      <PageTable />
+      <PageTable users={users} setPendingDelete={setPendingDelete} openEdit={openEdit} openDetails={openDetails} isError={isError} isLoading={isLoading}  />
       {/* <UsersManagementRedesign /> */}
     </>
   );

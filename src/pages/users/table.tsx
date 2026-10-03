@@ -1,4 +1,4 @@
-import React, { useState, useMemo, memo } from "react";
+import { useState, useMemo, memo, type Dispatch, type SetStateAction } from "react";
 import { DataGridPagination } from "@/components/dataGrid/pagination";
 import { ScrollArea, ScrollBar } from "@/components/scrollArea";
 import { DataGridColumnHeader } from "@/components/dataGrid/columnHeader";
@@ -20,24 +20,14 @@ import {
   CardToolbar,
 } from "@/components";
 import {
-  Activity,
-  ArrowUpRight,
-  CheckCircle2,
-  Clock3,
   Eye,
-  Mail,
   Pencil,
-  Plus,
   Search,
-  ShieldCheck,
-  TicketCheck,
   Trash2,
-  UsersRound,
   X,
 } from 'lucide-react';
 import { Button } from "@/components/button";
 import { Avatar, AvatarFallback } from '@/components/avatar';
-import type { BasicInfoProps } from "@/types";
 import type { ManagedUser, UserFormValues, UserStatus } from '@/types/user';
 import type {
   ColumnDef,
@@ -50,14 +40,11 @@ import {
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
-  type Row,
   useReactTable,
 } from "@tanstack/react-table";
 
 
-function ActionsCell({ row }: { row: Row<BasicInfoProps> }) {
-  return <div id={row.id}></div>;
-}
+
 function PerformanceBar({ value }: { value: number }) {
   const color = value >= 90 ? 'bg-emerald-500' : value >= 75 ? 'bg-amber-500' : 'bg-rose-500';
   return (
@@ -90,16 +77,23 @@ function StatusBadge({ status }: { status: UserStatus }) {
 
 export const PageTable = memo(
   ({
-    setSettingsModalOpen,
+    isLoading,
+    isError,
+    openDetails,
+    openEdit,
+    setPendingDelete,
+    users,
   }: {
-    setSettingsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    isLoading: boolean;
+    isError: boolean;
+    openDetails: (user: ManagedUser) => void;
+    openEdit: (user: ManagedUser) => void;
+    users: ManagedUser[];
+    setPendingDelete: Dispatch<SetStateAction<ManagedUser | null>>;
   }) => {
     
   const [query, setQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState<'all' | UserStatus>('all');
-
-
-
 
  
     const [pagination, setPagination] = useState<PaginationState>({
@@ -111,9 +105,8 @@ export const PageTable = memo(
       { id: "sla", desc: true },
     ]);
 
-    const openCreate = () => { setFormUser(null); setFormOpen(true); };
-  const openEdit = (user: ManagedUser) => { setFormUser(user); setFormOpen(true); };
-  const openDetails = (user: ManagedUser) => { setDetailUser(user); setDetailOpen(true); };
+
+  
 
     const filteredUsers = useMemo(
       () =>
