@@ -9,14 +9,13 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: 'bg-primary text-white hover:bg-primary/90 data-[state=open]:bg-primary/90',
+        primary: 'bg-primary text-white hover:bg-primary/90',
         primaryLight: 'bg-primary/10 text-primary hover:bg-primary/20',
-        danger: 'bg-danger text-white hover:bg-danger/90 data-[state=open]:bg-danger/90',
+        danger: 'bg-danger text-white hover:bg-danger/90',
         dangerLight: 'bg-danger/10 text-danger hover:bg-danger/20',
-        secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/90 data-[state=open]:bg-secondary/90',
+        secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/90',
         outline: 'bg-background text-accent-foreground border border-border hover:bg-accent data-[state=open]:bg-accent',
-        dashed:
-          'text-accent-foreground border border-border border-dashed bg-background hover:bg-accent hover:text-accent-foreground data-[state=open]:text-accent-foreground',
+        dashed: 'text-accent-foreground border border-border border-dashed bg-background hover:bg-accent hover:text-accent-foreground data-[state=open]:text-accent-foreground',
         ghost: 'text-accent-foreground hover:text-accent-foreground',
         foreground: '',
         inverse: '',

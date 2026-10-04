@@ -14,7 +14,7 @@ export interface ManagedUser {
   name: string;
   initials: string;
   email: string;
-  mobile: string;
+  phone_number: string;
   role: string;
   department: string;
   status: UserStatus;
@@ -22,4 +22,4 @@ export interface ManagedUser {
   performance: UserTicketPerformance;
 }
 
-export type UserFormValues = Pick<ManagedUser, 'name' | 'email' | 'mobile' | 'role' | 'department' | 'status'>;
+export type UserFormValues = Pick<ManagedUser, 'name' | 'email' | 'phone_number' | 'role' | 'department' | 'status'>;

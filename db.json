@@ -57,72 +57,72 @@
       "name": "علی زمانی",
       "initials": "عز",
       "email": "ali.zamani@tickety.ir",
-      "mobile": "۰۹۱۲ ۳۴۵ ۶۷۸۹",
+      "phone_number": "09140000000",
       "role": "کارشناس ارشد پشتیبانی",
       "department": "فنی",
       "status": "active",
       "joinedAt": "۱۴۰۵/۰۴/۱۸",
-      "performance": { "assigned": 258, "open": 8, "resolved": 250, "averageResponseMinutes": 22, "sla": 95, "lastActivity": "۵ دقیقه پیش" }
+      "performance": { "assigned": 258, "open": 8, "resolved": 250, "averageResponseMinutes": 22, "sla": 95 }
     },
     {
       "id": "USR-1002",
       "name": "مریم کاظمی",
       "initials": "مک",
       "email": "maryam.kazemi@tickety.ir",
-      "mobile": "۰۹۱۴ ۲۲۵ ۱۸۹۰",
+      "phone_number": "09130000000",
       "role": "کارشناس پشتیبانی",
       "department": "عملیات",
       "status": "active",
       "joinedAt": "۱۴۰۵/۰۳/۲۹",
-      "performance": { "assigned": 196, "open": 6, "resolved": 190, "averageResponseMinutes": 18, "sla": 97, "lastActivity": "۱۲ دقیقه پیش" }
+      "performance": { "assigned": 196, "open": 6, "resolved": 190, "averageResponseMinutes": 18, "sla": 97 }
     },
     {
       "id": "USR-1003",
       "name": "امیر اسدی",
       "initials": "اا",
       "email": "amir.asadi@tickety.ir",
-      "mobile": "۰۹۳۵ ۷۷۱ ۴۰۹۲",
+      "phone_number": "09150000000",
       "role": "کارشناس دواپس",
       "department": "فنی",
       "status": "active",
       "joinedAt": "۱۴۰۴/۱۲/۰۶",
-      "performance": { "assigned": 236, "open": 49, "resolved": 187, "averageResponseMinutes": 37, "sla": 64, "lastActivity": "۱ ساعت پیش" }
+      "performance": { "assigned": 236, "open": 49, "resolved": 187, "averageResponseMinutes": 37, "sla": 64 }
     },
     {
       "id": "USR-1004",
       "name": "سارا احمدی",
       "initials": "سا",
       "email": "sara.ahmadi@tickety.ir",
-      "mobile": "۰۹۱۱ ۸۱۲ ۲۰۴۵",
+      "phone_number": "09160000000",
       "role": "مدیر پشتیبانی",
       "department": "مدیریت",
       "status": "active",
       "joinedAt": "۱۴۰۴/۱۰/۲۲",
-      "performance": { "assigned": 139, "open": 4, "resolved": 135, "averageResponseMinutes": 15, "sla": 99, "lastActivity": "هم‌اکنون" }
+      "performance": { "assigned": 139, "open": 4, "resolved": 135, "averageResponseMinutes": 15, "sla": 99 }
     },
     {
       "id": "USR-1005",
       "name": "رضا امیدی",
       "initials": "را",
       "email": "reza.omidi@tickety.ir",
-      "mobile": "۰۹۱۳ ۶۵۰ ۷۳۳۱",
+      "phone_number": "09170000000",
       "role": "کارشناس وردپرس",
       "department": "فنی",
       "status": "inactive",
       "joinedAt": "۱۴۰۴/۰۸/۱۳",
-      "performance": { "assigned": 157, "open": 12, "resolved": 145, "averageResponseMinutes": 40, "sla": 58, "lastActivity": "۳ روز پیش" }
+      "performance": { "assigned": 157, "open": 12, "resolved": 145, "averageResponseMinutes": 40, "sla": 58 }
     },
     {
       "id": "USR-1006",
       "name": "محمد ابراهیمی",
       "initials": "ما",
       "email": "mohammad.ebrahimi@tickety.ir",
-      "mobile": "۰۹۳۶ ۴۱۲ ۸۸۷۴",
+      "phone_number": "09180000000",
       "role": "کارشناس بک‌اند",
       "department": "فنی",
       "status": "active",
       "joinedAt": "۱۴۰۵/۰۱/۰۹",
-      "performance": { "assigned": 196, "open": 7, "resolved": 189, "averageResponseMinutes": 28, "sla": 85, "lastActivity": "۲۸ دقیقه پیش" }
+      "performance": { "assigned": 196, "open": 7, "resolved": 189, "averageResponseMinutes": 28, "sla": 85 }
     }
   ],
   "ticketStats": [

@@ -42,6 +42,8 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
+import { Delete02Icon, Edit03Icon, ViewIcon, Search01Icon, XIcon } from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from "@hugeicons/react";
 
 
 
@@ -57,7 +59,7 @@ function PerformanceBar({ value }: { value: number }) {
 const emptyForm: UserFormValues = {
   name: '',
   email: '',
-  mobile: '',
+  phone_number: '',
   role: '',
   department: '',
   status: 'active',
@@ -163,6 +165,15 @@ export const PageTable = memo(
           size: 230,
         },
         {
+          id: "phone_number",
+          accessorFn: (user) => user.role,
+          header: ({ column }) => (
+            <DataGridColumnHeader title="شماره تماس" column={column} />
+          ),
+          cell: ({ row }) => row.original.phone_number,
+          size: 100,
+        },
+        {
           id: "role",
           accessorFn: (user) => user.role,
           header: ({ column }) => (
@@ -186,28 +197,6 @@ export const PageTable = memo(
           ),
           cell: ({ row }) => <StatusBadge status={row.original.status} />,
           size: 110,
-        },
-        {
-          id: "tickets",
-          accessorFn: (user) => user.performance.resolved,
-          header: ({ column }) => (
-            <DataGridColumnHeader title="تیکت‌ها" column={column} />
-          ),
-          cell: ({ row }) => (
-            <div>
-              <span className="font-medium">
-                {row.original.performance.resolved}
-              </span>
-              <span className="text-muted-foreground">
-                {" "}
-                / {row.original.performance.assigned}
-              </span>
-              <p className="mt-0.5 text-xs text-amber-600">
-                {row.original.performance.open} باز
-              </p>
-            </div>
-          ),
-          size: 125,
         },
         {
           id: "responseTime",
@@ -253,14 +242,14 @@ export const PageTable = memo(
           cell: ({ row }) => (
             <div className="flex items-center justify-end gap-1">
               <Button
-                variant="ghost"
+                variant="primaryLight"
                 mode="icon"
                 size="sm"
                 aria-label={`مشاهده ${row.original.name}`}
                 title="مشاهده جزئیات"
                 onClick={() => openDetails(row.original)}
               >
-                <Eye />
+                <HugeiconsIcon icon={ViewIcon} />
               </Button>
               <Button
                 variant="primaryLight"
@@ -270,7 +259,7 @@ export const PageTable = memo(
                 title="ویرایش کاربر"
                 onClick={() => openEdit(row.original)}
               >
-                <Pencil />
+                <HugeiconsIcon icon={Edit03Icon} />
               </Button>
               <Button
                 variant="dangerLight"
@@ -280,7 +269,7 @@ export const PageTable = memo(
                 title="حذف کاربر"
                 onClick={() => setPendingDelete(row.original)}
               >
-                <Trash2 />
+                <HugeiconsIcon icon={Delete02Icon} />
               </Button>
             </div>
           ),
@@ -333,7 +322,7 @@ export const PageTable = memo(
             </CardHeading>
             <CardToolbar className="w-full flex-col sm:w-auto sm:flex-row">
               <div className="relative w-full sm:w-auto">
-                <Search className="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+                <HugeiconsIcon className="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" icon={Search01Icon} />
                 <Input
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
@@ -348,7 +337,7 @@ export const PageTable = memo(
                     className="absolute left-1 top-1/2 -translate-y-1/2"
                     onClick={() => setQuery("")}
                   >
-                    <X />
+                    <HugeiconsIcon icon={XIcon} />
                   </Button>
                 )}
               </div>

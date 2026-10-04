@@ -9,7 +9,7 @@ import { Input } from '@/components/input';
 const emptyForm: UserFormValues = {
     name: '',
     email: '',
-    mobile: '',
+    phone_number: '',
     role: '',
     department: '',
     status: 'active',
@@ -18,7 +18,7 @@ const emptyForm: UserFormValues = {
 const formFromUser = (user: ManagedUser | null): UserFormValues => user ? {
     name: user.name,
     email: user.email,
-    mobile: user.mobile,
+    phone_number: user.phone_number,
     role: user.role,
     department: user.department,
     status: user.status,
