@@ -11,7 +11,7 @@ const Card = ({className, children}: React.HTMLAttributes<HTMLDivElement>) => {
 }
 
 const CardHeader = ({ className, children }: React.HTMLAttributes<HTMLDivElement>) => {
-  return <div className={clsx("flex items-center justify-between flex-wrap px-5 min-h-14 gap-2.5 border-b border-border", className)}>{children}</div>;
+  return <div className={clsx("flex items-center justify-between flex-wrap p-5 min-h-14 gap-2.5 border-b border-border", className)}>{children}</div>;
 }
 
 const CardContent = ({ className, children }: React.HTMLAttributes<HTMLDivElement>) => {

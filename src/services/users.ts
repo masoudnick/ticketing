@@ -21,6 +21,7 @@ async function request<T>(url: string, options?: RequestInit): Promise<T> {
 
 const userService = {
   read: () => request<ManagedUser[]>(usersEndpoint),
+  readById: (id: string) => request<ManagedUser>(`${usersEndpoint}/${id}`),
   create: (user: ManagedUser) => request<ManagedUser>(usersEndpoint, { method: 'POST', body: JSON.stringify(user) }),
   update: (id: string, values: Partial<ManagedUser>) => request<ManagedUser>(`${usersEndpoint}/${id}`, { method: 'PATCH', body: JSON.stringify(values) }),
   delete: (id: string) => request<void>(`${usersEndpoint}/${id}`, { method: 'DELETE' }),

@@ -1,7 +1,7 @@
 import { DirectionProvider as RadixDirectionProvider } from '@radix-ui/react-direction';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { MainLayout, AuthLayout } from './layouts';
-import { Dashboard, SignIn, SignUp, Cartabl, Packages, Basics, Users } from '@/pages';
+import { AuthMiddleware, GuestMiddleware } from './routes/AuthMiddleware';
+import { Dashboard, SignIn, SignUp, Cartabl, Packages, Basics, Users, Profile } from '@/pages';
 import './App.css'
 import "./styles/tailwind.css";
 import "./styles/index.scss";
@@ -10,7 +10,7 @@ import "./styles/index.scss";
 
 const router = createBrowserRouter([
   {
-    element: <MainLayout />,
+    element: <AuthMiddleware />,
     children: [
       {
         index: true,
@@ -33,6 +33,10 @@ const router = createBrowserRouter([
         ]
       },
       {
+        path: "profile/:userId",
+        element: <Profile />,
+      },
+      {
         path: "settings",
         children: [
           {
@@ -50,7 +54,7 @@ const router = createBrowserRouter([
     ]
   },
   {
-    element: <AuthLayout />,
+    element: <GuestMiddleware />,
     children: [
       {
         path: "/signin",
@@ -73,25 +77,6 @@ function App() {
     <RadixDirectionProvider dir="rtl">
         <RouterProvider router={router}></RouterProvider>
     </RadixDirectionProvider>
-    // <>
-    //   <Router>
-    //     <Routes>
-
-    //       <Route element={<MainLayout />}>
-    //         <Route path="/" index element={<Dashboard />} handle={{ title: "داشبورد" }} />
-    //         <Route path="tickets">
-    //           <Route path="cartabl" element={<Cartabl />} handle={{ title: "کارتابل وظایف" }} />
-    //           <Route path="packages" element={<Packages />} handle={{ title: "بسته‌های پشتیبانی" }} />
-    //         </Route>
-    //       </Route>
-
-    //       <Route element={<AuthLayout />}>
-    //         <Route path="/signin" element={<SignIn />} />
-    //         <Route path="/signup" element={<SignUp />} />
-    //       </Route>
-    //     </Routes>
-    //   </Router >
-    // </>
   )
 }
 

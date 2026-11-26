@@ -9,6 +9,8 @@ const MenuItem = ({ item }: { item: MenuItemProps }) => {
 
     const [open, setOpen] = useState<boolean>(!!location.pathname.includes(item.href));
     const hasChildren = !!item.children?.length;
+    const isChild = item.type === "child";
+    const isActive = location.pathname.includes(item.href);
 
     return (
         <li className="mb-2 from-violet-500/12 to-violet-500/4">
@@ -20,10 +22,10 @@ const MenuItem = ({ item }: { item: MenuItemProps }) => {
                         <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
                     </svg>
                 </button>) : (
-                    <Link to={item.href} className={clsx("flex items-center py-2 rounded-lg gap-x-2", item.icon  ? 'px-2' : 'px-3.5', location.pathname.includes(item.href) && 'relative text-primary before:absolute before:start-[-1px] before:size-[6px] before:rounded-full before:bg-primary')}>
-                        {item.icon && <HugeiconsIcon icon={item.icon} size={20} />}
-                        {item.label}
-                    </Link>
+                <Link to={item.href} className={clsx("flex items-center py-2 rounded-lg gap-x-2", isChild  ? 'px-3.5' : 'px-2', isActive && 'text-primary', isActive && isChild && 'relative before:absolute before:start-[-1px] before:size-[6px] before:rounded-full before:bg-primary')}>
+                    {item.icon && <HugeiconsIcon icon={item.icon} size={20} />}
+                    {item.label}
+                </Link>
             )}
             {hasChildren && (
                 <div

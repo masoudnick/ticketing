@@ -53,94 +53,458 @@
   ],
   "users": [
     {
-      "id": "USR-1001",
+      "id": "usr-1001",
       "name": "علی زمانی",
+      "avatar": "300_12.jpg",
       "initials": "عز",
       "email": "ali.zamani@tickety.ir",
       "phone_number": "09140000000",
+      "city": "تهران",
       "role": "کارشناس ارشد پشتیبانی",
       "department": "فنی",
       "status": "active",
       "joinedAt": "۱۴۰۵/۰۴/۱۸",
-      "performance": { "assigned": 258, "open": 8, "resolved": 250, "averageResponseMinutes": 22, "sla": 95 }
+      "performance": {
+        "satisfaction": 96,
+        "assigned": 258,
+        "open": 8,
+        "resolved": 250,
+        "averageResponseMinutes": 22,
+        "sla": 95
+      },
+      "resolvedTickets": [
+        {
+          "label": "اردیبهشت",
+          "value": 38
+        },
+        {
+          "label": "خرداد",
+          "value": 42
+        },
+        {
+          "label": "تیر",
+          "value": 20
+        },
+        {
+          "label": "مرداد",
+          "value": 32
+        },
+        {
+          "label": "شهریور",
+          "value": 54
+        },
+        {
+          "label": "مهر",
+          "value": 48
+        }
+      ]
     },
     {
-      "id": "USR-1002",
+      "id": "usr-1002",
       "name": "مریم کاظمی",
+      "avatar": "300_1.jpg",
       "initials": "مک",
       "email": "maryam.kazemi@tickety.ir",
-      "phone_number": "09130000000",
+      "phone_number": "09120000000",
+      "city": "تهران",
       "role": "کارشناس پشتیبانی",
       "department": "عملیات",
       "status": "active",
       "joinedAt": "۱۴۰۵/۰۳/۲۹",
-      "performance": { "assigned": 196, "open": 6, "resolved": 190, "averageResponseMinutes": 18, "sla": 97 }
+      "performance": {
+        "assigned": 196,
+        "open": 6,
+        "resolved": 190,
+        "averageResponseMinutes": 18,
+        "sla": 97
+      }
     },
     {
-      "id": "USR-1003",
+      "id": "usr-1003",
       "name": "امیر اسدی",
       "initials": "اا",
       "email": "amir.asadi@tickety.ir",
       "phone_number": "09150000000",
+      "city": "مشهد",
       "role": "کارشناس دواپس",
       "department": "فنی",
       "status": "active",
       "joinedAt": "۱۴۰۴/۱۲/۰۶",
-      "performance": { "assigned": 236, "open": 49, "resolved": 187, "averageResponseMinutes": 37, "sla": 64 }
+      "performance": {
+        "assigned": 236,
+        "open": 49,
+        "resolved": 187,
+        "averageResponseMinutes": 37,
+        "sla": 64
+      }
     },
     {
-      "id": "USR-1004",
+      "id": "usr-1004",
       "name": "سارا احمدی",
       "initials": "سا",
       "email": "sara.ahmadi@tickety.ir",
       "phone_number": "09160000000",
+      "city": "اصفهان",
       "role": "مدیر پشتیبانی",
       "department": "مدیریت",
       "status": "active",
       "joinedAt": "۱۴۰۴/۱۰/۲۲",
-      "performance": { "assigned": 139, "open": 4, "resolved": 135, "averageResponseMinutes": 15, "sla": 99 }
+      "performance": {
+        "assigned": 139,
+        "open": 4,
+        "resolved": 135,
+        "averageResponseMinutes": 15,
+        "sla": 99
+      }
     },
     {
-      "id": "USR-1005",
+      "id": "usr-1005",
       "name": "رضا امیدی",
       "initials": "را",
       "email": "reza.omidi@tickety.ir",
       "phone_number": "09170000000",
+      "city": "قم",
       "role": "کارشناس وردپرس",
       "department": "فنی",
       "status": "inactive",
       "joinedAt": "۱۴۰۴/۰۸/۱۳",
-      "performance": { "assigned": 157, "open": 12, "resolved": 145, "averageResponseMinutes": 40, "sla": 58 }
+      "performance": {
+        "assigned": 157,
+        "open": 12,
+        "resolved": 145,
+        "averageResponseMinutes": 40,
+        "sla": 58
+      }
     },
     {
-      "id": "USR-1006",
+      "id": "usr-1006",
       "name": "محمد ابراهیمی",
       "initials": "ما",
       "email": "mohammad.ebrahimi@tickety.ir",
       "phone_number": "09180000000",
+      "city": "کرج",
       "role": "کارشناس بک‌اند",
       "department": "فنی",
       "status": "active",
       "joinedAt": "۱۴۰۵/۰۱/۰۹",
-      "performance": { "assigned": 196, "open": 7, "resolved": 189, "averageResponseMinutes": 28, "sla": 85 }
+      "performance": {
+        "assigned": 196,
+        "open": 7,
+        "resolved": 189,
+        "averageResponseMinutes": 28,
+        "sla": 85
+      }
+    },
+    {
+      "id": "usr-1007",
+      "name": "نیما صالحی",
+      "initials": "نص",
+      "email": "nima.salehi@tickety.ir",
+      "phone_number": "09120001000",
+      "city": "کرج",
+      "role": "کارشناس ارشد پشتیبانی",
+      "department": "فنی",
+      "status": "active",
+      "joinedAt": "۱۴۰۴/۰۷/۲۲",
+      "performance": {
+        "assigned": 328,
+        "open": 11,
+        "resolved": 317,
+        "averageResponseMinutes": 16,
+        "sla": 98
+      }
+    }
+  ],
+  "performanceProfiles": [
+    {
+      "id": "usr-1001",
+      "userId": "usr-1001",
+      "period": "مهر ۱۴۰۵",
+      "satisfaction": 96,
+      "qualityScore": 94,
+      "firstResponseMinutes": 16,
+      "resolutionHours": 5.8,
+      "workload": 82,
+      "backlog": 11,
+      "goal": "کاهش زمان پاسخ اولیه به کمتر از ۱۵ دقیقه و حفظ رضایت مشتری بالای ۹۵٪.",
+      "updatedAt": "امروز، ۱۰:۴۵",
+      "trend": [
+        {
+          "label": "اردیبهشت",
+          "resolved": 42,
+          "target": 38
+        },
+        {
+          "label": "خرداد",
+          "resolved": 48,
+          "target": 42
+        },
+        {
+          "label": "تیر",
+          "resolved": 51,
+          "target": 46
+        },
+        {
+          "label": "مرداد",
+          "resolved": 55,
+          "target": 50
+        },
+        {
+          "label": "شهریور",
+          "resolved": 58,
+          "target": 54
+        },
+        {
+          "label": "مهر",
+          "resolved": 63,
+          "target": 58
+        }
+      ],
+      "activities": [
+        {
+          "id": "act-100-1",
+          "date": "امروز، ۰۹:۳۵",
+          "title": "حل تیکت با اولویت بالا",
+          "description": "درخواست دسترسی مشتری شرکت آذرخش در کمتر از ۲۰ دقیقه نهایی شد.",
+          "type": "resolved"
+        },
+        {
+          "id": "act-100-2",
+          "date": "دیروز، ۱۵:۱۰",
+          "title": "ثبت بازخورد مثبت",
+          "description": "مشتری برای کیفیت پیگیری و پاسخ‌گویی امتیاز ۵ از ۵ ثبت کرد.",
+          "type": "feedback"
+        },
+        {
+          "id": "act-100-3",
+          "date": "۱۴۰۵/۰۷/۰۳",
+          "title": "عبور از هدف هفتگی",
+          "description": "هدف هفتگی حل ۱۴ تیکت با ۱۸ تیکت بسته‌شده پشت سر گذاشته شد.",
+          "type": "achievement"
+        }
+      ]
+    },
+    {
+      "id": "usr-1002",
+      "userId": "usr-1002",
+      "period": "مهر ۱۴۰۵",
+      "satisfaction": 92,
+      "qualityScore": 90,
+      "firstResponseMinutes": 22,
+      "resolutionHours": 7.4,
+      "workload": 74,
+      "backlog": 8,
+      "goal": "متعادل نگه‌داشتن حجم تیکت‌های باز و افزایش کیفیت مستندسازی پاسخ‌ها.",
+      "updatedAt": "امروز، ۰۹:۲۰",
+      "trend": [
+        {
+          "label": "اردیبهشت",
+          "resolved": 38,
+          "target": 40
+        },
+        {
+          "label": "خرداد",
+          "resolved": 43,
+          "target": 42
+        },
+        {
+          "label": "تیر",
+          "resolved": 39,
+          "target": 44
+        },
+        {
+          "label": "مرداد",
+          "resolved": 46,
+          "target": 46
+        },
+        {
+          "label": "شهریور",
+          "resolved": 41,
+          "target": 48
+        },
+        {
+          "label": "مهر",
+          "resolved": 43,
+          "target": 50
+        }
+      ],
+      "activities": []
+    },
+    {
+      "id": "usr-1003",
+      "userId": "usr-1003",
+      "period": "مهر ۱۴۰۵",
+      "satisfaction": 79,
+      "qualityScore": 76,
+      "firstResponseMinutes": 37,
+      "resolutionHours": 12.8,
+      "workload": 94,
+      "backlog": 49,
+      "goal": "کاهش تیکت‌های باز زیرساختی و رساندن SLA به بالای ۸۰٪.",
+      "updatedAt": "۱۴۰۵/۰۷/۰۴",
+      "trend": [
+        {
+          "label": "اردیبهشت",
+          "resolved": 28,
+          "target": 36
+        },
+        {
+          "label": "خرداد",
+          "resolved": 33,
+          "target": 38
+        },
+        {
+          "label": "تیر",
+          "resolved": 29,
+          "target": 42
+        },
+        {
+          "label": "مرداد",
+          "resolved": 35,
+          "target": 44
+        },
+        {
+          "label": "شهریور",
+          "resolved": 31,
+          "target": 46
+        },
+        {
+          "label": "مهر",
+          "resolved": 31,
+          "target": 48
+        }
+      ],
+      "activities": []
+    }
+  ],
+  "tickets": [
+    {
+      "id": "705440",
+      "subject": "مشکل ورود کاربران شعبه مرکزی",
+      "sender": "نگار محمدی",
+      "trackingNumber": "TR-1405-01842",
+      "assigneeId": "usr-1006",
+      "assignee": "محمد ابراهیمی",
+      "progress": 65,
+      "supportPackage": "پشتیبانی ویژه",
+      "requesterBranch": "شهرداری شیراز · شعبه مرکزی",
+      "createdAt": "۱۴۰۵/۰۷/۱۸، ۰۹:۳۰",
+      "status": "در حال بررسی",
+      "priority": "بحرانی",
+      "history": [
+        { "id": "705440-h1", "by": "محمد ابراهیمی", "action": "تغییر وضعیت به در حال بررسی", "date": "۱۴۰۵/۰۷/۱۸، ۰۹:۴۵", "note": "بررسی دسترسی کاربران شعبه آغاز شد." },
+        { "id": "705440-h2", "by": "محمد ابراهیمی", "action": "ثبت یادداشت", "date": "۱۴۰۵/۰۷/۱۸، ۱۰:۱۰", "note": "گزارش خطای ورود برای بررسی به تیم فنی ارجاع شد." }
+      ]
+    },
+    {
+      "id": "705470",
+      "subject": "فیلتر موضوع در جستجوی پروژه کار نمی‌کند",
+      "sender": "آرمان کریمی",
+      "trackingNumber": "TR-1405-01851",
+      "assigneeId": "usr-1001",
+      "assignee": "علی زمانی",
+      "progress": 35,
+      "supportPackage": "پشتیبانی استاندارد",
+      "requesterBranch": "شهرداری کاشان · فناوری اطلاعات",
+      "createdAt": "۱۴۰۵/۰۷/۱۹، ۰۸:۲۰",
+      "status": "در انتظار مشتری",
+      "priority": "بالا",
+      "history": [
+        { "id": "705470-h1", "by": "علی زمانی", "action": "ارسال پیام به مشتری", "date": "۱۴۰۵/۰۷/۱۹، ۰۹:۰۰", "note": "برای بازتولید مشکل، نام پروژه و تصویر فیلتر درخواست شد." }
+      ]
+    },
+    {
+      "id": "705480",
+      "subject": "ارسال فرآیند قرارداد ناموفق است",
+      "sender": "پریسا رضایی",
+      "trackingNumber": "TR-1405-01866",
+      "assigneeId": "usr-1005",
+      "assignee": "رضا امیدی",
+      "progress": 20,
+      "supportPackage": "پشتیبانی ویژه",
+      "requesterBranch": "شرکت گاز اصفهان · امور قراردادها",
+      "createdAt": "۱۴۰۵/۰۷/۲۰، ۰۸:۴۰",
+      "status": "جدید",
+      "priority": "متوسط",
+      "history": [
+        { "id": "705480-h1", "by": "رضا امیدی", "action": "دریافت مسئولیت", "date": "۱۴۰۵/۰۷/۲۰، ۰۹:۰۰", "note": "تیکت برای بررسی اولیه دریافت شد." }
+      ]
+    },
+    {
+      "id": "705390",
+      "subject": "امضای دیجیتال در فرآیند پروژه اعمال نمی‌شود",
+      "sender": "سعید نادری",
+      "trackingNumber": "TR-1405-01792",
+      "assigneeId": "usr-1001",
+      "assignee": "علی زمانی",
+      "progress": 80,
+      "supportPackage": "پشتیبانی سازمانی",
+      "requesterBranch": "شرکت آبفا تهران · منطقه ۳",
+      "createdAt": "۱۴۰۵/۰۷/۱۷، ۱۱:۱۵",
+      "status": "در حال بررسی",
+      "priority": "بالا",
+      "history": [
+        { "id": "705390-h1", "by": "علی زمانی", "action": "تحلیل مشکل", "date": "۱۴۰۵/۰۷/۱۷، ۱۲:۱۰", "note": "گواهی امضا بررسی شد و مشکل در صف پردازش شناسایی شد." },
+        { "id": "705390-h2", "by": "علی زمانی", "action": "به‌روزرسانی پیشرفت", "date": "۱۴۰۵/۰۷/۱۸، ۰۹:۲۰", "note": "اصلاح در محیط آزمایشی تأیید شد." }
+      ]
+    },
+    {
+      "id": "705890",
+      "subject": "ثبت امضا در پروژه ۶۴۰۷ انجام نمی‌شود",
+      "sender": "الهام صادقی",
+      "trackingNumber": "TR-1405-01904",
+      "assigneeId": "usr-1006",
+      "assignee": "محمد ابراهیمی",
+      "progress": 55,
+      "supportPackage": "پشتیبانی استاندارد",
+      "requesterBranch": "شرکت آبفا اصفهان · منطقه مرکزی",
+      "createdAt": "۱۴۰۵/۰۷/۲۱، ۰۸:۲۰",
+      "status": "در انتظار مشتری",
+      "priority": "بالا",
+      "history": [
+        { "id": "705890-h1", "by": "محمد ابراهیمی", "action": "درخواست اطلاعات تکمیلی", "date": "۱۴۰۵/۰۷/۲۱، ۰۹:۱۰", "note": "نسخه مرورگر و شناسه کاربری درخواست شد." }
+      ]
+    },
+    {
+      "id": "705620",
+      "subject": "افزودن کاربر جدید به پنل نمایندگی",
+      "sender": "مهدی جعفری",
+      "trackingNumber": "TR-1405-01810",
+      "assigneeId": "usr-1002",
+      "assignee": "مریم کاظمی",
+      "progress": 100,
+      "supportPackage": "پشتیبانی استاندارد",
+      "requesterBranch": "علوم پزشکی یزد · شعبه اداری",
+      "createdAt": "۱۴۰۵/۰۷/۱۴، ۱۴:۰۵",
+      "status": "بسته‌شده",
+      "priority": "عادی",
+      "history": [
+        { "id": "705620-h1", "by": "مریم کاظمی", "action": "ایجاد دسترسی کاربر", "date": "۱۴۰۵/۰۷/۱۴، ۱۴:۴۰", "note": "حساب ساخته و مشخصات ورود برای درخواست‌کننده ارسال شد." },
+        { "id": "705620-h2", "by": "مریم کاظمی", "action": "بستن تیکت", "date": "۱۴۰۵/۰۷/۱۴، ۱۵:۰۰", "note": "درخواست‌کننده ایجاد دسترسی را تأیید کرد." }
+      ]
     }
   ],
   "ticketStats": [
     {
       "name": "totalTickets",
-      "value": "4000"
+      "value": "4000",
+      "id": "7MNo5yG5wVU"
     },
     {
       "name": "resolvedTickets",
-      "value": "500"
+      "value": "500",
+      "id": "R9TfvXigcQs"
     },
     {
       "name": "openTickets",
-      "value": "2500"
+      "value": "2500",
+      "id": "7HJIPekx-0o"
     },
     {
       "name": "doingTickets",
-      "value": "1000"
+      "value": "1000",
+      "id": "kHBTS-5gEDw"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
